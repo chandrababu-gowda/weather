@@ -11,7 +11,7 @@ const options = {
 submit.addEventListener("click", () => {
   let locationEntered = locationSearch.value;
   fetch(
-    `http://dataservice.accuweather.com/locations/v1/search?q=${locationEntered}&apikey=KFN3QrWNJCPTSSwZ8TGjWPraDWLInSFV`,
+    `https://dataservice.accuweather.com/locations/v1/search?q=${locationEntered}&apikey=KFN3QrWNJCPTSSwZ8TGjWPraDWLInSFV`,
     options
   )
     .then((response) => response.json())
@@ -19,7 +19,7 @@ submit.addEventListener("click", () => {
     .then((response) => {
       let locationKey = response[0].Key;
       fetch(
-        `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=KFN3QrWNJCPTSSwZ8TGjWPraDWLInSFV`,
+        `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=KFN3QrWNJCPTSSwZ8TGjWPraDWLInSFV`,
         options
       )
         .then((response) => response.json())
