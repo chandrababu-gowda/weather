@@ -1,14 +1,36 @@
-// const options = {
-//     method: "GET",
-//   };
+let locationSearch = document.querySelector(".enter-location");
+let submit = document.querySelector(".submit-btn");
+
+const options = {
+  method: "GET",
+};
+
+submit.addEventListener("click", () => {
+  let locationEntered = locationSearch.value;
+  fetch(
+    `http://dataservice.accuweather.com/locations/v1/search?q=${locationEntered}&apikey=KFN3QrWNJCPTSSwZ8TGjWPraDWLInSFV`,
+    options
+  )
+    .then((response) => response.json())
+    .catch((err) => console.error(err))
+    .then((response) => {
+      let locationKey = response[0].Key;
+      console.log(response[0].Key);
+    });
+  console.log(locationEntered);
+});
+
+// Delhi
 
 // fetch(
-//     `https://imdb8.p.rapidapi.com/title/get-ratings?tconst=${movieId}`,
-//     options
-//   )
-//     .then((response) => response.json())
-//     .then(response => console.log(response))
-//     .catch((err) => console.error(err));
+//   `http://dataservice.accuweather.com/locations/v1/search?q=Delhi&apikey=KFN3QrWNJCPTSSwZ8TGjWPraDWLInSFV`,
+//   options
+// )
+//   .then((response) => response.json())
+//   .catch((err) => console.error(err))
+//   .then((response) => {
+//     console.log(response);
+//   });
 
 //  Location Key ---- http://dataservice.accuweather.com/locations/v1/search?q=Delhi&apikey=KFN3QrWNJCPTSSwZ8TGjWPraDWLInSFV;
 
