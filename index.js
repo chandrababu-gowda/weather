@@ -15,22 +15,19 @@ submit.addEventListener("click", () => {
     .catch((err) => console.error(err))
     .then((response) => {
       let locationKey = response[0].Key;
-      console.log(response[0].Key);
+      fetch(
+        `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=KFN3QrWNJCPTSSwZ8TGjWPraDWLInSFV`,
+        options
+      )
+        .then((response) => response.json())
+        .catch((err) => console.error(err))
+        .then((response) => {
+          console.log(response);
+        });
     });
-  console.log(locationEntered);
 });
 
 // Delhi
-
-// fetch(
-//   `http://dataservice.accuweather.com/locations/v1/search?q=Delhi&apikey=KFN3QrWNJCPTSSwZ8TGjWPraDWLInSFV`,
-//   options
-// )
-//   .then((response) => response.json())
-//   .catch((err) => console.error(err))
-//   .then((response) => {
-//     console.log(response);
-//   });
 
 //  Location Key ---- http://dataservice.accuweather.com/locations/v1/search?q=Delhi&apikey=KFN3QrWNJCPTSSwZ8TGjWPraDWLInSFV;
 
